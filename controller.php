@@ -31,20 +31,24 @@ class Controller
         ]);
     }
      
-   function addArticle(){
-    var_dump($_POST);
+   function addArticle(){//
+   
 
     if(empty($_POST)){
-        echo("premier formulaire");
+      
         $View = new View();
         $View->render("ajouterArticle");
 
     }else{
-
-
-        echo("deuxieme formulaire-traitements du formulaire");
+        
+        
+        $article = new Article($_POST);//on instancie la classe Article et on passe en parametre les données du formulaire
+       
+        $articleManager = new ArticleManager();//on instancie la classe ArticleManager
+        $articleManager->sauvegarderArticle($article);//on appelle la fonction sauvegarderArticle de la classe ArticleManager et on passe en parametre l'objet article
+        $this->showListeArticle();//on appelle la fonction showListeArticle
+   
     }
-
 
 
    }

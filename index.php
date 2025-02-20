@@ -1,9 +1,10 @@
 <?php
 include_once("config.php");
-include_once("Model/Article.php");
-include_once("Model/ArticleManager.php");
+include_once("./autoload.php");
+
+
 include_once("views.php");
-include_once("controller.php"); 
+
 //ob_start();   
 // main();             
 // $out = ob_get_clean();              
